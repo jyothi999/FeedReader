@@ -71,6 +71,8 @@ $(
         const menu = document.querySelector(".menu-icon-link");
         menu.click();
         expect(body.classList.contains("menu-hidden")).toBe(false);
+        menu.click();
+        expect(body.classList.contains("menu-hidden")).toBe(true);
       });
     });
 
@@ -86,9 +88,8 @@ $(
         loadFeed(0, done);
       });
       it("Load feed completes work", function() {
-        const feed = document.querySelector(".feed");
-        let entry = feed.children;
-        expect(entry[0].innerText.length > 0).toBe(true);
+        const feed = $(".feed .entry");
+        expect(feed.children.length > 0).toBe(true);
       });
     });
 
